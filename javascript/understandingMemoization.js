@@ -1,17 +1,33 @@
-    function addMemo(){
-        let cashe = {};
+function addMemo(){
+        let cache = {};
         return (value)=>{
-            if(value in cashe){
-                console.log("Fetching from cashe");
-                return cashe[value]
+            if(value in cache){
+      
+                return cache[value]
             }else{
-                console.log("Calculating result")
+             
                 let result = value + 20;
-                cashe[value] = result;
+                cache[value] = result;
                 return result;
             }
         }
+   
     }
     let addit = addMemo()
+    console.log(addit(23))
     console.log(addit(20))
-    console.log(addit(20))
+
+    function findthememo(){
+        let cache={};
+        return (value)=>{
+            if(value in cache){
+                return cache[value]
+            }else{
+                let result = value + 30;
+                cache[value] = result
+                return result
+            }
+        }
+    }
+    let findMemo = findthememo();
+    console.log(findMemo(90));

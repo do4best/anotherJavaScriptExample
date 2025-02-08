@@ -18,3 +18,34 @@ const fibonacci = momoizewithClosure((n)=>{
 })
 
 console.log(fibonacci(13))
+
+function mamoExample(fn){
+    let cache = {};
+    return function(...args){
+        const key = args.join(",")
+        if(key in cache){
+            return cache[key]
+        }
+        const result = fn(...args)
+        cache[key] = result;
+        return result;
+    }
+}
+function memoazationWithClosure(fn){
+    let cache = {};
+    return function(...args){
+        const key = args.join(",")
+        if(key in cache){
+            return cache[key]
+        }else{
+            let result = fn(...args)
+            cache[key] = result;
+            return result;
+        }
+    }
+}
+let resultfinal = memoazationWithClosure((n)=>{
+if(n <= 1) return n;
+return resultfinal(n-1) + resultfinal(n-2)
+})
+console.log(resultfinal(90))
