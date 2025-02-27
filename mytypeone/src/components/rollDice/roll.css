@@ -1,0 +1,18 @@
+
+.dice{
+    font-size: 7rem;
+    margin: 5px;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.roll-animation{
+    animation: roll;
+}
+@keyframes roll{
+    0%{
+        transform: rotate(0deg) rotateX(0deg);
+    }
+    100%{
+        transform: rotate(720deg) rotateX(720deg);
+    }
+}
